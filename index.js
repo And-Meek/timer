@@ -74,7 +74,13 @@ class TimerModule {
 
   showFormatedTimer(minutes, seconds) {
     const modalSeconds = document.querySelector(".modalText");
-    if (String(seconds).length == 2) {
+    if (String(minutes).length >= 2) {
+      if (String(seconds).length == 2) {
+        modalSeconds.textContent = `Таймер: ${minutes}.${seconds}`;
+      } else {
+        modalSeconds.textContent = `Таймер: ${minutes}.0${seconds}`;
+      }
+    } else if (String(seconds).length == 2) {
       modalSeconds.textContent = `Таймер: 0${minutes}.${seconds}`;
     } else {
       modalSeconds.textContent = `Таймер: 0${minutes}.0${seconds}`;
