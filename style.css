@@ -1,0 +1,73 @@
+.container {
+  background-color: grey;
+  height: 200px;
+  width: 300px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  padding: 30px 10px;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 5px;
+  border-color: black;
+  border-style: solid;
+}
+
+#input {
+  padding-top: 25%;
+  padding-left: 5px;
+  position: absolute;
+  display: inline-block;
+}
+
+.input-form {
+  margin-left: 10px;
+}
+.btn {
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  padding: 30px 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.timerModal {
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  width: 150px;
+  height: 75px;
+  /* margin: auto; */
+  margin-bottom: 10px;
+  margin-right: 10px;
+  border-style: solid;
+  border-radius: 2px;
+  border-color: red;
+  background-color: grey;
+}
+
+.timerHiden {
+  opacity: 0;
+}
+
+.modalText {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  padding: 30px 10px;
+  display: flex;
+  justify-content: space-around;
+}
