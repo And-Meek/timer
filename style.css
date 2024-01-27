@@ -75,3 +75,15 @@
 .btn :hover {
   cursor: pointer;
 }
+
+img {
+  width: 20px;
+  height: 20px;
+  top: 0;
+  right: 0;
+  position: absolute;
+  z-index: 999;
+}
+img :hover {
+  cursor: pointer;
+}

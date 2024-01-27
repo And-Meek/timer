@@ -39,7 +39,7 @@ class TimerModule {
   removeTimerModal() {
     const removeTimerModal = document.querySelector(".timerModal");
     removeTimerModal.className = "timerModal timerHiden";
-    return removeTimerModal;
+    removeTimerModal.remove();
   }
 
   showTimerModal() {
@@ -48,10 +48,22 @@ class TimerModule {
     timerModal.className = "timerModal";
     const timerText = document.createElement("div");
     timerText.className = "modalText";
+    const closeBtn = document.createElement("img");
+    closeBtn.src = "./assets/close.png";
+    closeBtn.className = "closeBtn";
+    timerModal.append(closeBtn);
     timerModal.append(timerText);
     body.append(timerModal);
   }
 
+  clickOnCloseBtn(timer) {
+    const closeBtn = document.querySelector(".closeBtn");
+    closeBtn.addEventListener("click", (event) => {
+      clearInterval(timer);
+      this.removeTimerModal();
+      this.showModal();
+    });
+  }
   run() {
     const form = document.querySelector("form");
     form.addEventListener("submit", (event) => {
@@ -61,7 +73,7 @@ class TimerModule {
       timerValue.trim();
       if (timerValue.length) {
         this.removeModal();
-        return this.getFormatedTime(timerValue);
+        this.getFormatedTime(timerValue);
       } else alert("Введите время!");
     });
   }
@@ -69,10 +81,11 @@ class TimerModule {
     const getMinutes = Math.floor(timeValue / 60);
     const getSeconds = timeValue % 60;
     this.showTimerModal();
-    return this.startTimer(getMinutes, getSeconds);
+    this.startTimer(getMinutes, getSeconds);
   }
 
   showFormatedTimer(minutes, seconds) {
+    this.clickOnCloseBtn();
     const modalSeconds = document.querySelector(".modalText");
     if (String(minutes).length >= 2) {
       if (String(seconds).length == 2) {
@@ -116,6 +129,7 @@ class TimerModule {
         clearInterval(timer);
       }
     }, 1000);
+    this.clickOnCloseBtn(timer);
   }
 }
 
